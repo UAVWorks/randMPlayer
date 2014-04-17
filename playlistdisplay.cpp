@@ -18,6 +18,7 @@
  *
  * */
 
+
 #include "playlistdisplay.h"
 #include "ui_playlistdisplay.h"
 
@@ -25,7 +26,17 @@ playlistDisplay::playlistDisplay(QMediaPlaylist *playlist, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::playlistDisplay)
 {
+    int i;
+
     ui->setupUi(this);
+
+    for(i=0 ; i<playlist->mediaCount() ; ++i)
+    {
+        QListWidgetItem *item = new QListWidgetItem();
+        item->setText(playlist->media(i).canonicalUrl().toDisplayString());
+        ui->playlistWidget->addItem(item);
+    }
+
 }
 
 playlistDisplay::~playlistDisplay()
