@@ -50,9 +50,7 @@ void MainWindow::on_newPlaylistButton_clicked()
 
 void MainWindow::on_restartButton_clicked()
 {
-    this->player.stop();
     this->playlist.setCurrentIndex(0);
-    this->player.play();
 }
 
 void MainWindow::setNewPlaylist()
