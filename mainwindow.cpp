@@ -31,6 +31,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    connect(ui->nextMediaButton, SIGNAL(clicked()),
+            &(this->playlist), SLOT(next()));
     ui->centralWidget->show();
 
     this->setNewPlaylist();
