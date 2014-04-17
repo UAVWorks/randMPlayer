@@ -64,6 +64,7 @@ void MainWindow::setNewPlaylist()
         QDirIterator it(dir, fileFilters, QDir::Readable | QDir::NoDotAndDotDot |
                         QDir::Files | QDir::NoSymLinks,
                         QDirIterator::Subdirectories);
+        this->playlist.clear();
         while(it.hasNext())
         {
             it.next();
