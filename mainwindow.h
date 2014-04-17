@@ -1,5 +1,5 @@
 /*
- *  This file is part of the Drone project
+ *  This file is part of the randMPlayer project
  *  Copyright (C) 17/04/2014 -- mainwindow.h -- bertrand
  *
  *  This program is free software; you can redistribute it and/or modify
@@ -23,6 +23,10 @@
 
 #include <QMainWindow>
 
+#include <QMediaPlayer>
+#include <QMediaPlaylist>
+#include <QVideoWidget>
+
 namespace Ui {
 class MainWindow;
 }
@@ -36,7 +40,9 @@ public:
     ~MainWindow();
 
 private:
-    Ui::MainWindow *ui;
+    Ui::MainWindow  *ui;
+    QMediaPlaylist  playlist;
+    QMediaPlayer    player;
 };
 
 #endif // MAINWINDOW_H

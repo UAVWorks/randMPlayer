@@ -1,5 +1,5 @@
 /*
- *  This file is part of the Drone project
+ *  This file is part of the randMPlayer project
  *  Copyright (C) 17/04/2014 -- mainwindow.cpp -- bertrand
  *
  *  This program is free software; you can redistribute it and/or modify
@@ -18,6 +18,11 @@
  *
  * */
 
+#include <QProcess>
+#include <QDirIterator>
+#include <QFileDialog>
+#include <QDebug>
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
@@ -26,6 +31,29 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->centralWidget->show();
+
+    QString dir = QFileDialog::getExistingDirectory(this,
+                                                "Select Directory", "/home");
+    if(!dir.isEmpty())
+    {
+        QStringList fileFilters = QStringList();
+        fileFilters << "*.mp4" << "*.flv" << "*.avi" << "*.wmv" << "*.mkv";
+        QDirIterator it(dir, fileFilters, QDir::Readable | QDir::NoDotAndDotDot |
+                        QDir::Files | QDir::NoSymLinks,
+                        QDirIterator::Subdirectories);
+        while(it.hasNext())
+        {
+            it.next();
+            this->playlist.addMedia(QMediaContent(
+                                        QUrl::fromLocalFile(it.filePath())));
+        }
+
+        this->player.setPlaylist(&(this->playlist));
+        this->player.setVideoOutput(ui->videoWidget);
+        ui->videoWidget->show();
+        this->player.play();
+    }
 }
 
 MainWindow::~MainWindow()
