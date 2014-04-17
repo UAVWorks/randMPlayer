@@ -1,5 +1,5 @@
 /*
- *  This file is part of the Drone project
+ *  This file is part of the randMPlayer project
  *  Copyright (C) 17/04/2014 -- playlistdisplay.cpp -- bertrand
  *
  *  This program is free software; you can redistribute it and/or modify
