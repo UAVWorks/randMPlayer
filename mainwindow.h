@@ -39,6 +39,11 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+    void    setNewPlaylist();
+
+private slots:
+    void on_newPlaylistButton_clicked();
+
 private:
     Ui::MainWindow  *ui;
     QMediaPlaylist  playlist;

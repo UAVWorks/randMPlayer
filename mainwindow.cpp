@@ -33,6 +33,21 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->centralWidget->show();
 
+    this->setNewPlaylist();
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+
+void MainWindow::on_newPlaylistButton_clicked()
+{
+    this->setNewPlaylist();
+}
+
+void MainWindow::setNewPlaylist()
+{
     QString dir = QFileDialog::getExistingDirectory(this,
                                                 "Select Directory", "/home");
     if(!dir.isEmpty())
@@ -54,9 +69,4 @@ MainWindow::MainWindow(QWidget *parent) :
         ui->videoWidget->show();
         this->player.play();
     }
-}
-
-MainWindow::~MainWindow()
-{
-    delete ui;
 }
