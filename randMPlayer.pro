@@ -13,8 +13,11 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    playlistdisplay.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    playlistdisplay.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    playlistdisplay.ui
