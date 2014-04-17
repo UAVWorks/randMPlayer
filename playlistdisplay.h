@@ -22,6 +22,7 @@
 #define PLAYLISTDISPLAY_H
 
 #include <QDialog>
+#include <QMediaPlaylist>
 
 namespace Ui {
 class playlistDisplay;
@@ -32,7 +33,7 @@ class playlistDisplay : public QDialog
     Q_OBJECT
 
 public:
-    explicit playlistDisplay(QWidget *parent = 0);
+    explicit playlistDisplay(QMediaPlaylist *playlist, QWidget *parent = 0);
     ~playlistDisplay();
 
 private:

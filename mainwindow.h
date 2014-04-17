@@ -43,6 +43,8 @@ private slots:
     void on_restartButton_clicked();
     void setNewPlaylist();
 
+    void on_showPlaylistButton_clicked();
+
 private:
     Ui::MainWindow  *ui;
     QMediaPlaylist  playlist;

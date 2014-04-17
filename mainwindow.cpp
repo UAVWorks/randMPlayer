@@ -25,6 +25,7 @@
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "playlistdisplay.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -74,4 +75,11 @@ void MainWindow::setNewPlaylist()
         ui->videoWidget->show();
         this->player.play();
     }
+}
+
+void MainWindow::on_showPlaylistButton_clicked()
+{
+    playlistDisplay pld(&(this->playlist), this->ui->centralWidget);
+    pld.setWindowModality(Qt::WindowModal);
+    pld.exec();
 }

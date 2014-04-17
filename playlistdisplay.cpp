@@ -21,7 +21,7 @@
 #include "playlistdisplay.h"
 #include "ui_playlistdisplay.h"
 
-playlistDisplay::playlistDisplay(QWidget *parent) :
+playlistDisplay::playlistDisplay(QMediaPlaylist *playlist, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::playlistDisplay)
 {
