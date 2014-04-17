@@ -48,7 +48,7 @@ MainWindow::MainWindow(QWidget *parent) :
             this->playlist.addMedia(QMediaContent(
                                         QUrl::fromLocalFile(it.filePath())));
         }
-
+        this->playlist.setPlaybackMode(QMediaPlaylist::Random);
         this->player.setPlaylist(&(this->playlist));
         this->player.setVideoOutput(ui->videoWidget);
         ui->videoWidget->show();
