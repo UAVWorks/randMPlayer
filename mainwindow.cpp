@@ -46,6 +46,13 @@ void MainWindow::on_newPlaylistButton_clicked()
     this->setNewPlaylist();
 }
 
+void MainWindow::on_restartButton_clicked()
+{
+    this->player.stop();
+    this->playlist.setCurrentIndex(0);
+    this->player.play();
+}
+
 void MainWindow::setNewPlaylist()
 {
     QString dir = QFileDialog::getExistingDirectory(this,
