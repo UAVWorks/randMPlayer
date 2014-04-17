@@ -33,6 +33,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     connect(ui->nextMediaButton, SIGNAL(clicked()),
             &(this->playlist), SLOT(next()));
+    connect(ui->newPlaylistButton, SIGNAL(clicked()),
+              this, SLOT(setNewPlaylist()));
     ui->centralWidget->show();
 
     this->setNewPlaylist();
@@ -41,11 +43,6 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
-}
-
-void MainWindow::on_newPlaylistButton_clicked()
-{
-    this->setNewPlaylist();
 }
 
 void MainWindow::on_restartButton_clicked()
