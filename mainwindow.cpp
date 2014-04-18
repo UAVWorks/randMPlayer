@@ -31,6 +31,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    this->setWindowFlags(Qt::WindowStaysOnTopHint);
     ui->setupUi(this);
     connect(ui->nextMediaButton, SIGNAL(clicked()),
             &(this->playlist), SLOT(next()));
