@@ -73,7 +73,8 @@ void MainWindow::setNewPlaylist()
     if(!dir.isEmpty())
     {
         QStringList fileFilters = QStringList();
-        fileFilters << "*.mp4" << "*.flv" << "*.avi" << "*.wmv" << "*.mkv";
+        fileFilters << "*.mp4" << "*.flv" << "*.avi" << "*.wmv" << "*.mkv"
+                    << "*.mpg" << "*.mpeg";
         QDirIterator it(dir, fileFilters, QDir::Readable | QDir::NoDotAndDotDot |
                         QDir::Files | QDir::NoSymLinks,
                         QDirIterator::Subdirectories);
