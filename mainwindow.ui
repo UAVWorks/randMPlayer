@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QVideoWidget" name="videoWidget" native="true">
+   <widget class="VideoWidget" name="videoWidget" native="true">
     <property name="geometry">
      <rect>
       <x>9</x>
@@ -72,9 +72,9 @@
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
   <customwidget>
-   <class>QVideoWidget</class>
+   <class>VideoWidget</class>
    <extends>QWidget</extends>
-   <header>qvideowidget.h</header>
+   <header>videowidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

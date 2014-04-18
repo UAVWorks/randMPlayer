@@ -1,6 +1,6 @@
 /*
  *  This file is part of the randMPlayer project
- *  Copyright (C) 17/04/2014 -- mainwindow.h -- bertrand
+ *  Copyright (C) 18/04/2014 -- videowidget.cpp -- bertrand
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -18,39 +18,14 @@
  *
  * */
 
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#include "videowidget.h"
 
-#include <QMainWindow>
-
-#include <QMediaPlayer>
-#include <QMediaPlaylist>
-#include <QVideoWidget>
-#include <QWheelEvent>
-#include <QPoint>
-
-namespace Ui {
-class MainWindow;
+VideoWidget::VideoWidget(QWidget *parent) :
+    QVideoWidget(parent)
+{
 }
 
-class MainWindow : public QMainWindow
+void VideoWidget::wheelEvent(QWheelEvent *event)
 {
-    Q_OBJECT
-
-public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
-
-private slots:
-    void on_restartButton_clicked();
-    void on_showPlaylistButton_clicked();
-    void on_videoWidget_wheelTurned(QWheelEvent *event);
-    void setNewPlaylist();
-
-private:
-    Ui::MainWindow  *ui;
-    QMediaPlaylist  playlist;
-    QMediaPlayer    player;
-};
-
-#endif // MAINWINDOW_H
+   emit wheelTurned(event);
+}

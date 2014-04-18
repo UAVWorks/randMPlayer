@@ -39,6 +39,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->centralWidget->show();
 
     this->setNewPlaylist();
+    connect(ui->videoWidget, SIGNAL(wheelTurned(QWheelEvent*)),
+            this, SLOT());
 }
 
 MainWindow::~MainWindow()
@@ -49,6 +51,19 @@ MainWindow::~MainWindow()
 void MainWindow::on_restartButton_clicked()
 {
     this->playlist.setCurrentIndex(0);
+}
+
+void MainWindow::on_showPlaylistButton_clicked()
+{
+    playlistDisplay pld(&(this->playlist), this->ui->centralWidget);
+    pld.setWindowModality(Qt::WindowModal);
+    pld.exec();
+}
+
+void MainWindow::on_videoWidget_wheelTurned(QWheelEvent *event)
+{
+        this->player.setVolume(this->player.volume() +
+                               event->angleDelta().y()/120);
 }
 
 void MainWindow::setNewPlaylist()
@@ -75,11 +90,4 @@ void MainWindow::setNewPlaylist()
         ui->videoWidget->show();
         this->player.play();
     }
-}
-
-void MainWindow::on_showPlaylistButton_clicked()
-{
-    playlistDisplay pld(&(this->playlist), this->ui->centralWidget);
-    pld.setWindowModality(Qt::WindowModal);
-    pld.exec();
 }
