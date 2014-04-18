@@ -39,8 +39,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->centralWidget->show();
 
     this->setNewPlaylist();
-    connect(ui->videoWidget, SIGNAL(wheelTurned(QWheelEvent*)),
-            this, SLOT());
 }
 
 MainWindow::~MainWindow()
