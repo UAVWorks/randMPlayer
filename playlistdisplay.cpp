@@ -27,6 +27,7 @@ playlistDisplay::playlistDisplay(QMediaPlaylist *playlist, QWidget *parent) :
     ui(new Ui::playlistDisplay)
 {
     int i;
+    QListWidgetItem *currentMedia;
 
     ui->setupUi(this);
 
@@ -36,7 +37,9 @@ playlistDisplay::playlistDisplay(QMediaPlaylist *playlist, QWidget *parent) :
         item->setText(playlist->media(i).canonicalUrl().toDisplayString());
         ui->playlistWidget->addItem(item);
     }
-
+    currentMedia = ui->playlistWidget->item(playlist->currentIndex());
+    if(currentMedia != NULL)
+        currentMedia->setBackgroundColor(Qt::red);
 }
 
 playlistDisplay::~playlistDisplay()
