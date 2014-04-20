@@ -38,8 +38,6 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->newPlaylistButton, SIGNAL(clicked()),
               this, SLOT(setNewPlaylist()));
     ui->centralWidget->show();
-
-    this->setNewPlaylist();
 }
 
 MainWindow::~MainWindow()
