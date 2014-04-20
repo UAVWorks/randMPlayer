@@ -22,6 +22,7 @@
 #include <QDirIterator>
 #include <QFileDialog>
 #include <QDebug>
+#include <QTime>
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
@@ -76,13 +77,16 @@ void MainWindow::setNewPlaylist()
                         QDir::Files | QDir::NoSymLinks,
                         QDirIterator::Subdirectories);
         this->playlist.clear();
+        QTime time = QTime::currentTime();
+        qsrand((uint)time.msec());
+        this->playlist.setPlaybackMode(QMediaPlaylist::Random);
         while(it.hasNext())
         {
             it.next();
             this->playlist.addMedia(QMediaContent(
                                         QUrl::fromLocalFile(it.filePath())));
         }
-        this->playlist.setPlaybackMode(QMediaPlaylist::Random);
+        this->playlist.shuffle();
         this->player.setPlaylist(&(this->playlist));
         this->player.setVideoOutput(ui->videoWidget);
         ui->videoWidget->show();
