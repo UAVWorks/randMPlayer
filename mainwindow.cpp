@@ -39,6 +39,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->newPlaylistButton, SIGNAL(clicked()),
               this, SLOT(setNewPlaylist()));
     ui->centralWidget->show();
+
+    this->setWindowTitle("Directory Random Player");
 }
 
 MainWindow::~MainWindow()

@@ -40,6 +40,8 @@ playlistDisplay::playlistDisplay(QMediaPlaylist *playlist, QWidget *parent) :
     currentMedia = ui->playlistWidget->item(playlist->currentIndex());
     if(currentMedia != NULL)
         currentMedia->setBackgroundColor(Qt::red);
+
+    this->setWindowTitle("Playlist");
 }
 
 playlistDisplay::~playlistDisplay()
